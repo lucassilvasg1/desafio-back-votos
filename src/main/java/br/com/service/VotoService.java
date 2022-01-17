@@ -32,7 +32,8 @@ public class VotoService
    @Transactional
    public VotoDTO inserir(VotoDTO votoDTO)
    {
-      Sessao sessao = sessaoRepository.findByIdPauta(votoDTO.getIdPauta()).orElseThrow(() -> new SessaoException("Nenhuma sessão aberta para esta pauta."));
+      Sessao sessao = sessaoRepository.findByIdPauta(votoDTO.getIdPauta())
+            .orElseThrow(() -> new SessaoException("Nenhuma sessão aberta para esta pauta."));
 
       vaildarSessao(sessao);
 
@@ -75,9 +76,7 @@ public class VotoService
    public List<VotoDTO> listarVotos(Long idSessao)
    {
       List<Voto> listaVotos = votoRepository.findAllByIdSessao(idSessao);
-      List<VotoDTO> listaDTO = listaVotos.stream().map(voto -> mapper.map(voto, VotoDTO.class)).collect(Collectors.toList());
-
-      return listaDTO;
+      return listaVotos.stream().map(voto -> mapper.map(voto, VotoDTO.class)).collect(Collectors.toList());
    }
 
 }
