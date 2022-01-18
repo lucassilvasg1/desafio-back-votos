@@ -4,6 +4,7 @@
 ### Pré-requisitos
 
 Para rodar a api será necessário ter instalado na máquina o docker
+
 Para rodar os testes automatizados deve ter instalado o java 8 na máquina (jdk8)
 
 ### 🎲 Buildando e Executando a API
@@ -30,9 +31,13 @@ $ git clone https://github.com/lucassilvasg1/desafio-back-votos
 ### Sobre a implementação
 
 O projeto foi implementado utilizando a linguagem JAVA, com o framework Spring
-O banco de dados utilizado foi o postgresql;
-Os testes de API e integração foi implementado com o JUnit 5 com o MockMvc;
-Foi utilizado o plugin SonarLint na IDE Eclipse para checagem de código limpo;
-O Docker e Docker Compose foram configurados para a api subir através de seus containers específicos;
+
+O banco de dados utilizado foi o postgresql
+
+Os testes de API e integração foi implementado com o JUnit 5 com o MockMvc
+
+Foi utilizado o plugin SonarLint na IDE Eclipse para checagem de código limpo
+
+O Docker e Docker Compose foram configurados para a api subir através de seus containers específicos
   
         
