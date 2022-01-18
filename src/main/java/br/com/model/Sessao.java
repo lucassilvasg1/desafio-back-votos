@@ -50,7 +50,7 @@ public class Sessao
    @Column(name = "data_fim")
    private LocalDateTime dataFim;
 
-   @OneToMany(fetch = FetchType.LAZY)
+   @OneToMany(fetch = FetchType.EAGER)
    @JoinColumn(name = "id_sessao", insertable = false, updatable = false)
    private List<Voto> votos;
 

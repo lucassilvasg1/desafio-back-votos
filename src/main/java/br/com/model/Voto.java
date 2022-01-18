@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
-import br.com.model.enumaration.TipoVoto;
+import br.com.enumeration.TipoVoto;
 import lombok.Getter;
 import lombok.Setter;
 

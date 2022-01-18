@@ -2,8 +2,6 @@ package br.com.service;
 
 import java.util.Objects;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,14 +38,14 @@ public class SessaoService
    @Transactional(readOnly = true)
    public SessaoDTO obterPorId(Long id)
    {
-      Sessao retorno = sessaoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Sessao não encontrada."));
+      Sessao retorno = sessaoRepository.findById(id).orElseThrow(() -> new SessaoException("Sessao não encontrada."));
       return mapper.map(retorno, SessaoDTO.class);
    }
 
    @Transactional(readOnly = true)
    public SessaoDTO obterPorIdPauta(Long idPauta)
    {
-      Sessao retorno = sessaoRepository.findByIdPauta(idPauta).orElseThrow(() -> new EntityNotFoundException("Sessao não encontrada."));
+      Sessao retorno = sessaoRepository.findByIdPauta(idPauta).orElseThrow(() -> new SessaoException("A Pauta não contém uma sessão."));
       return mapper.map(retorno, SessaoDTO.class);
    }
 
