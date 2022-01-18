@@ -23,7 +23,7 @@ public class SessaoService
    private ModelMapper mapper;
 
    @Transactional
-   public SessaoInserirDTO inserir(SessaoInserirDTO sessaoDTO)
+   public SessaoDTO inserir(SessaoInserirDTO sessaoDTO)
    {
       Sessao sessao = sessaoRepository.findByIdPauta(sessaoDTO.getIdPauta()).orElse(null);
       if (!Objects.isNull(sessao))
@@ -32,17 +32,15 @@ public class SessaoService
       }
 
       Sessao retorno = sessaoRepository.save(mapper.map(sessaoDTO, Sessao.class));
-      return mapper.map(retorno, SessaoInserirDTO.class);
+      return mapper.map(retorno, SessaoDTO.class);
    }
 
-   @Transactional(readOnly = true)
    public SessaoDTO obterPorId(Long id)
    {
       Sessao retorno = sessaoRepository.findById(id).orElseThrow(() -> new SessaoException("Sessao não encontrada."));
       return mapper.map(retorno, SessaoDTO.class);
    }
 
-   @Transactional(readOnly = true)
    public SessaoDTO obterPorIdPauta(Long idPauta)
    {
       Sessao retorno = sessaoRepository.findByIdPauta(idPauta).orElseThrow(() -> new SessaoException("A Pauta não contém uma sessão."));

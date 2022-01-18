@@ -32,7 +32,7 @@ public class PautaController
 
    @ApiOperation(value = "Este metodo insere uma nova pauta")
    @PostMapping(value= "/inserir")
-   public ResponseEntity<PautaInserirDTO> inserir(@Valid @RequestBody PautaInserirDTO dto)
+   public ResponseEntity<PautaDTO> inserir(@Valid @RequestBody PautaInserirDTO dto)
    {
       return ResponseEntity.ok(service.inserir(dto));
    }

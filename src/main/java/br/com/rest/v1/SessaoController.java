@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.dto.SessaoDTO;
 import br.com.dto.SessaoInserirDTO;
 import br.com.service.SessaoService;
 
@@ -23,7 +24,7 @@ public class SessaoController
    SessaoService service;
 
    @PostMapping
-   public ResponseEntity<SessaoInserirDTO> inserir(@Valid @RequestBody SessaoInserirDTO dto)
+   public ResponseEntity<SessaoDTO> inserir(@Valid @RequestBody SessaoInserirDTO dto)
    {
       return ResponseEntity.ok(service.inserir(dto));
    }

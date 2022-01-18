@@ -37,10 +37,10 @@ public class PautaService
    private ModelMapper mapper;
 
    @Transactional
-   public PautaInserirDTO inserir(PautaInserirDTO pautaDTO)
+   public PautaDTO inserir(PautaInserirDTO pautaDTO)
    {
       Pauta retorno = pautaRepository.save(mapper.map(pautaDTO, Pauta.class));
-      return mapper.map(retorno, PautaInserirDTO.class);
+      return mapper.map(retorno, PautaDTO.class);
    }
    
    public List<PautaDTO> pesquisar(Integer numeroPagina)
@@ -62,15 +62,10 @@ public class PautaService
       return mapper.map(retorno, PautaDTO.class);
    }
 
-   public Integer obterQuantidadeVotos(Long idPauta)
-   {
-      SessaoDTO sessao = sessaoService.obterPorId(idPauta);
-      return votoService.quantidadeVotosSessao(sessao.getId());
-   }
-
    public ResultadoPautaDTO obterResultado(Long idPauta)
    {
       SessaoDTO sessao = sessaoService.obterPorIdPauta(idPauta);
+      
       List<VotoDTO> listaVotos = votoService.listarVotos(sessao.getId());
 
       long quantidadeSim = listaVotos.stream().filter(p -> p.getTipoVoto().equals(TipoVoto.SIM)).count();

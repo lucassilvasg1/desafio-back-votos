@@ -59,11 +59,6 @@ public class VotoService
       return votoDTO;
    }
 
-   public Integer quantidadeVotosSessao(Long idSessao)
-   {
-      return votoRepository.quantidadeVotosSessao(idSessao);
-   }
-
    public List<VotoDTO> listarVotos(Long idSessao)
    {
       List<Voto> listaVotos = votoRepository.findAllByIdSessao(idSessao);
