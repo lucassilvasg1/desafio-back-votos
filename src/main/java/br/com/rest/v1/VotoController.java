@@ -1,4 +1,4 @@
-package br.com.controller;
+package br.com.rest.v1;
 
 import javax.validation.Valid;
 
@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.dto.SessaoInserirDTO;
-import br.com.service.SessaoService;
+import br.com.dto.VotoInserirDTO;
+import br.com.service.VotoService;
 
 @RestController
-@RequestMapping("sessao")
+@RequestMapping("v1/voto")
 @CrossOrigin(origins = "*")
-public class SessaoController
+public class VotoController
 {
 
    @Autowired
-   SessaoService service;
+   VotoService service;
 
-   @PostMapping
-   public ResponseEntity<SessaoInserirDTO> inserir(@Valid @RequestBody SessaoInserirDTO dto)
+   @PostMapping(value = "/inserir")
+   public ResponseEntity<VotoInserirDTO> inserir(@Valid @RequestBody VotoInserirDTO dto)
    {
       return ResponseEntity.ok(service.inserir(dto));
    }
-
+   
 }

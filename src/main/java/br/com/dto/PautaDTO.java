@@ -1,6 +1,5 @@
 package br.com.dto;
 
-import br.com.model.Sessao;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +11,5 @@ public class PautaDTO
 
    private String descricao;
    
-   private Sessao sessao;
-
+   private SessaoDTO sessao;
 }
