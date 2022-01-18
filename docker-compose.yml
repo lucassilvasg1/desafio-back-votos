@@ -25,9 +25,9 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=votacao_test
     ports:
-      - "5433:5433"
+      - "5433:5432"
     volumes:
-      - ./databaseTest:/var/lib/postgresql/data
+    - ./create_votacao_db.sql:/docker-entrypoint-initdb.d/create_votacao_db.sql
     networks:
       - votacao-network
 

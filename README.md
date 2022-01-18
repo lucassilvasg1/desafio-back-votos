@@ -19,7 +19,7 @@ $ git clone https://github.com/lucassilvasg1/desafio-back-votos
       # Este comando irá gerar as imagens e criar o ambiente completo da api sem executar os testes.
 
 # Para executar os testes automatizados:
-      ./mvnw verify
+      mvn verify
       # Irá rodar somente os testes automatizados 
       
 # O swagger está disponível na url:
@@ -32,6 +32,7 @@ $ git clone https://github.com/lucassilvasg1/desafio-back-votos
 O projeto foi implementado utilizando a linguagem JAVA, com o framework Spring
 O banco de dados utilizado foi o postgresql;
 Os testes de API e integração foi implementado com o JUnit 5 com o MockMvc;
+Foi utilizado o plugin SonarLint na IDE Eclipse para checagem de código limpo;
 O Docker e Docker Compose foram configurados para a api subir através de seus containers específicos;
   
         
