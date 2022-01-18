@@ -1,6 +1,7 @@
 package br.com.exception;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -15,12 +16,9 @@ public class Erro
 
    private LocalDateTime timestamp;
 
-   private String type;
-
    private String title;
 
    private String detail;
-
-   private String userMessage;
-
+   
+   private List<ErroObject> objects;
 }
